@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.connect.reservation.dto.Categories;
-import static kr.or.connect.reservation.dao.CategoriesDaoSqls.*;
+import static kr.or.connect.reservation.dao.sqls.CategoriesDaoSqls.*;
 
 @Repository
 public class CategoriesDao {

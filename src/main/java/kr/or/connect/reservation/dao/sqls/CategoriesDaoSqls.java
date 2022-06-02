@@ -1,4 +1,4 @@
-package kr.or.connect.reservation.dao;
+package kr.or.connect.reservation.dao.sqls;
 
 public class CategoriesDaoSqls {
 	public static final String SELECT_CATEGORIES = "SELECT id, name FROM category";

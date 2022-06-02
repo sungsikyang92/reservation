@@ -1,4 +1,4 @@
-package kr.or.connect.reservation.service;
+package kr.or.connect.reservation.serviceImpl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.or.connect.reservation.dao.CategoriesDao;
 import kr.or.connect.reservation.dto.Categories;
+import kr.or.connect.reservation.service.CategotiesService;
 
 @Service
 public class CategoriesServiceImpl implements CategotiesService{

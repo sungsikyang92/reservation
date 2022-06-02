@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import kr.or.connect.reservation.config.ApplicationConfig;
 import kr.or.connect.reservation.config.WebMvcContextConfiguration;
-import kr.or.connect.reservation.service.CategoriesServiceImpl;
+import kr.or.connect.reservation.serviceImpl.CategoriesServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {WebMvcContextConfiguration.class, ApplicationConfig.class})
