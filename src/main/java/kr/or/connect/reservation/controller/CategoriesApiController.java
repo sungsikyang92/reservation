@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +13,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kr.or.connect.reservation.dto.Categories;
+import kr.or.connect.reservation.dto.Display;
 import kr.or.connect.reservation.dto.Product;
 import kr.or.connect.reservation.dto.Promotion;
 import kr.or.connect.reservation.serviceImpl.CategoriesServiceImpl;
+import kr.or.connect.reservation.serviceImpl.DisplayServiceImpl;
 import kr.or.connect.reservation.serviceImpl.ProductServiceImpl;
 import kr.or.connect.reservation.serviceImpl.PromotionServiceImpl;
 
@@ -27,6 +30,8 @@ public class CategoriesApiController {
 	ProductServiceImpl productServiceImpl;
 	@Autowired
 	PromotionServiceImpl promotionServiceImpl;
+	@Autowired
+	DisplayServiceImpl displayServiceImpl;
 	
 	@ApiOperation(value = "카테고리 목록 구하기")
 	@ApiResponses({
@@ -70,5 +75,22 @@ public class CategoriesApiController {
 		
 		Promotion.Result promotionResult = new Promotion.Result(size, items);
 		return promotionResult;
+	}
+	
+	@ApiOperation(value = "전시아이디로 전시정보 구하")
+	@ApiResponses({
+		@ApiResponse(code = 200, message = "ok"),
+		@ApiResponse(code = 500, message = "Exception")
+	})
+	@GetMapping("/displayinfos/{displayId}")
+	public Display.Result getCategoryListByDisplayId(@PathVariable(name = "displayId") int displayInfoId) {
+		List<Product.Info> product = displayServiceImpl.getProductById(displayInfoId);
+		List<Product.Image> productImages = displayServiceImpl.getProductImageById(displayInfoId);
+		List<Display.InfoImage> displayInfoImages = displayServiceImpl.getDisplayInfoImageById(displayInfoId);
+		int getAvgScore = displayServiceImpl.getAvgScore(displayInfoId);
+		List<Product.Price> productPrices = displayServiceImpl.getProductPriceById(displayInfoId);
+		
+		Display.Result displayResult = new Display.Result(product, productImages, displayInfoImages, getAvgScore, productPrices);
+		return displayResult;
 	}
 }

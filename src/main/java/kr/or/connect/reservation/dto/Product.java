@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Product {
-	public static class Info{
+	public static class Info {
 		private int id;
 		private int categoryId;
 		private int displayInfoId;
@@ -133,7 +133,140 @@ public class Product {
 			this.fileId = fileId;
 		}
 	}
-	public static class Result{
+	
+	public static class Image {
+		private int id;
+		private int displayInfoId;
+		private int fileId;
+		private String fileName;
+		private String saveFileName;
+		private String contentType;
+		private int deleteFlag;
+		private Date createDate;
+		private Date modifyDate;
+		@Override
+		public String toString() {
+			return "Image [id=" + id + ", displayInfoId=" + displayInfoId + ", fileId=" + fileId + ", fileName="
+					+ fileName + ", saveFileName=" + saveFileName + ", contentType=" + contentType + ", deleteFlag="
+					+ deleteFlag + ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public int getDisplayInfoId() {
+			return displayInfoId;
+		}
+		public void setDisplayInfoId(int displayInfoId) {
+			this.displayInfoId = displayInfoId;
+		}
+		public int getFileId() {
+			return fileId;
+		}
+		public void setFileId(int fileId) {
+			this.fileId = fileId;
+		}
+		public String getFileName() {
+			return fileName;
+		}
+		public void setFileName(String fileName) {
+			this.fileName = fileName;
+		}
+		public String getSaveFileName() {
+			return saveFileName;
+		}
+		public void setSaveFileName(String saveFileName) {
+			this.saveFileName = saveFileName;
+		}
+		public String getContentType() {
+			return contentType;
+		}
+		public void setContentType(String contentType) {
+			this.contentType = contentType;
+		}
+		public int getDeleteFlag() {
+			return deleteFlag;
+		}
+		public void setDeleteFlag(int deleteFlag) {
+			this.deleteFlag = deleteFlag;
+		}
+		public Date getCreateDate() {
+			return createDate;
+		}
+		public void setCreateDate(Date createDate) {
+			this.createDate = createDate;
+		}
+		public Date getModifyDate() {
+			return modifyDate;
+		}
+		public void setModifyDate(Date modifyDate) {
+			this.modifyDate = modifyDate;
+		}
+	}
+	
+	public static class Price {
+		private int id;
+		private int productId;
+		private String priceTypeName;
+		private int price;
+		private int discountRate;
+		private Date createDate;
+		private Date modifyDate;
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public int getProductId() {
+			return productId;
+		}
+		public void setProductId(int productId) {
+			this.productId = productId;
+		}
+		public String getPriceTypeName() {
+			return priceTypeName;
+		}
+		public void setPriceTypeName(String priceTypeName) {
+			this.priceTypeName = priceTypeName;
+		}
+		public int getPrice() {
+			return price;
+		}
+		public void setPrice(int price) {
+			this.price = price;
+		}
+		public int getDiscountRate() {
+			return discountRate;
+		}
+		public void setDiscountRate(int discountRate) {
+			this.discountRate = discountRate;
+		}
+		public Date getCreateDate() {
+			return createDate;
+		}
+		public void setCreateDate(Date createDate) {
+			this.createDate = createDate;
+		}
+		public Date getModifyDate() {
+			return modifyDate;
+		}
+		public void setModifyDate(Date modifyDate) {
+			this.modifyDate = modifyDate;
+		}
+		@Override
+		public String toString() {
+			return "Price [id=" + id + ", productId=" + productId + ", priceTypeName=" + priceTypeName + ", price="
+					+ price + ", discountRate=" + discountRate + ", createDate=" + createDate + ", modifyDate="
+					+ modifyDate + "]";
+		}
+		
+	}
+	
+	
+	public static class Result {
 		private int totalCount;
 		private int productCount;
 		private List<Product.Info> products;
