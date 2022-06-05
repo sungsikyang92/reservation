@@ -9,11 +9,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 import kr.or.connect.reservation.config.ApplicationConfig;
-import kr.or.connect.reservation.config.WebMvcContextConfiguration;
+import kr.or.connect.reservation.config.MvcConfig;
 import kr.or.connect.reservation.serviceImpl.CategoriesServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= {WebMvcContextConfiguration.class, ApplicationConfig.class})
+@ContextConfiguration(classes= {MvcConfig.class, ApplicationConfig.class})
 @WebAppConfiguration
 public class CategoriesApiControllerTest {
 	
